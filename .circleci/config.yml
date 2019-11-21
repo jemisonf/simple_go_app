@@ -36,9 +36,9 @@ jobs:
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             RELEASE_TAG=release-${CIRCLECI_BUILD_NUM}
-            docker tag $IMAGE_NAME:latest $IMAGE_NAME:$IMAGE_TAG
+            docker tag $IMAGE_NAME:latest $IMAGE_NAME:$RELEASE_TAG
             docker push $IMAGE_NAME:latest
-            docker push $IMAGE_NAME:$IMAGE_TAG
+            docker push $IMAGE_NAME:$RELEASE_TAG
 workflows:
   version: 2
   build-master:

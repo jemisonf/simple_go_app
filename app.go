@@ -26,6 +26,7 @@ func message(w http.ResponseWriter, r *http.Request) {
 		"Hello world",
 		"It's a lovely day",
 		"It's not a lovely day",
+		"What are you still doing here?",
 	}
 
 	message := messages[random_generator.Int()%len(messages)]
