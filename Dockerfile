@@ -1,15 +1,13 @@
-FROM golang:1.13 AS builder
+FROM golang:1.13-buster as build
 
-WORKDIR /build
-ADD app.go .
-ADD go.mod .
-RUN cat app.go
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o simple .
+WORKDIR /go/src/app
+ADD . /go/src/app
 
-FROM alpine:latest
+RUN go get -d -v ./...
 
-WORKDIR /app
+RUN go build -o /go/bin/app
 
-ADD simple .
-
-CMD [ "/app/simple" ]
+# Now copy it into our base image.
+FROM gcr.io/distroless/base-debian10
+COPY --from=build /go/bin/app /
+CMD ["/app"]
