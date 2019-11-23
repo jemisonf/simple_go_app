@@ -23,9 +23,9 @@ func main() {
 func message(w http.ResponseWriter, r *http.Request) {
 	log.Print("request at /message")
 	messages := []string{
-		// "Hello world",
-		// "It's a lovely day",
-		// "It's not a lovely day",
+		"Hello world",
+		"It's a lovely day",
+		"It's not a lovely day",
 		"What are you still doing here?",
 	}
 
