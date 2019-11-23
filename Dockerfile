@@ -3,6 +3,7 @@ FROM golang:1.13 AS builder
 WORKDIR /build
 ADD app.go .
 ADD go.mod .
+RUN cat app.go
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o simple .
 
 FROM alpine:latest
