@@ -1,5 +1,7 @@
 # Simple Go App
 
+[![CircleCI](https://circleci.com/gh/jemisonf/simple_go_app.svg?style=svg)](https://circleci.com/gh/jemisonf/simple_go_app)
+
 This is a simple go app that I built because I wanted a containerizable application I could use if I ran into something container-related that I wanted to test.
 
 ## Requirements
