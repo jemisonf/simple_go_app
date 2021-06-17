@@ -1,9 +1,12 @@
-FROM golang:1.13-buster as build
+FROM golang:1.16-buster as build
 
 WORKDIR /go/src/app
-ADD . /go/src/app
+ADD ./go.mod /go/src/app/
+ADD ./go.sum /go/src/app/
 
 RUN go get -d -v ./...
+
+ADD . /go/src/app/
 
 RUN go build -o /go/bin/app
 
